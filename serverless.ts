@@ -32,6 +32,14 @@ const serverlessConfiguration: AWS = {
 
         }
       }]
+    },
+    consumer: {
+      handler: 'src/functions/consumer/handler.default',
+      events: [{
+        sqs: {
+          arn: 'arn:aws:sqs:eu-central-1:258148218765:dead-letter-Q.fifo',
+        }
+      }]
     }
   }
 };
